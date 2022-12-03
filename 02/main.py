@@ -16,12 +16,6 @@ rps_input_dict = {
     "Z": 2,
 }
 
-shape_score_dict = {
-    "X": 1,
-    "Y": 2,
-    "Z": 3,
-}
-
 result_score_dict = {
     "W": 6,
     "D": 3,
@@ -38,6 +32,20 @@ for line in lines:
     input_opponent = rps_input_dict[line[0]]
     input_me = rps_input_dict[line[2]]
     result = rps_table[input_opponent][input_me]
-    score += result_score_dict[result] + shape_score_dict[line[2]]
+    score += result_score_dict[result] + input_me + 1
     print(line, result)
 print("Answer to Part 1:", score)
+
+# Part 2
+result_prediction_dict = {
+    "X": "L",
+    "Y": "D",
+    "Z": "W",
+}
+score = 0
+
+for line in lines:
+    input_opponent = rps_input_dict[line[0]]
+    input_me = rps_table[input_opponent].index(result_prediction_dict[line[2]])
+    score += result_score_dict[result_prediction_dict[line[2]]] + input_me + 1
+print("Answer to Part 2" + score)
