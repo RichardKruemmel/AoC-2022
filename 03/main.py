@@ -38,4 +38,4 @@ for number in range(0, len(lines), 3):
             lower_case_character = character.lower()
             index = characters.index(lower_case_character)
             sum += index + 27
-print(sum)
+print("The Answer to Part 2 is:", sum)
