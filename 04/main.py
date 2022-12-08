@@ -19,3 +19,15 @@ for i in range(0, len(assignments), 2):
 
 # Print the number of fully-contained pairs
 print("The answer to Part One is:", num_fully_contained_pairs)
+
+# Part two
+
+num_overlapping_pairs = 0
+for i in range(0, len(assignments), 2):
+    a1 = assignments[i]
+    a2 = assignments[i + 1]
+    if any(val in range(a1[0], a1[1] + 1) for val in range(a2[0], a2[1] + 1)):
+        num_overlapping_pairs += 1
+
+# Print the number of overlapping pairs
+print("The Answer to part two is:", num_overlapping_pairs)
